@@ -5,7 +5,6 @@ export const BodyContainer = styled.div`
   grid-template-columns: 1fr;
   grid-column-gap: 20px;
   grid-row-gap: 20px;
-  padding: 40px;
 
   @media (min-width: ${props => props.theme.breakPoints.md}) {
     grid-template-columns: 1fr 1fr 1fr 1fr;

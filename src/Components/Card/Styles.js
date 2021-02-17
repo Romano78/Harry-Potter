@@ -94,7 +94,7 @@ export const CardContainer = styled.div`
   width: 100%;
   ${background}
   position: relative;
-  height: 900px;
+  height: 1200px;
 
   @media (min-width: ${props => props.theme.breakPoints.md}) {
     height: 890px;
