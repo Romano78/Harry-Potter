@@ -132,7 +132,7 @@ const IndexLayout = () => {
         </Card>
         <Card title="Hemsirdaigle" animationAigle={animationAigle} src={mc}>
           <ScoreP>
-            Score:
+            Score:{" "}
             {aigleCount > 20
               ? 20
               : aigleCount && aigleCount < 0
@@ -156,7 +156,7 @@ const IndexLayout = () => {
           src={paul}
         >
           <ScoreP>
-            Score:
+            Score:{" "}
             {souffleCount > 20
               ? 20
               : souffleCount && souffleCount < 0
@@ -176,7 +176,7 @@ const IndexLayout = () => {
         </Card>
         <Card title="Gryffobin" animationGriff={animationGriff} src={robin}>
           <ScoreP>
-            Score:
+            Score:{" "}
             {griffCount > 20
               ? 20
               : griffCount && griffCount < 0

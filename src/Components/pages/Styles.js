@@ -12,12 +12,15 @@ export const BodyContainer = styled.div`
 `
 
 export const ScoreP = styled.p`
-  font-size: 45px;
+  font-size: 70px;
   position: absolute;
   top: 0;
   margin-top: 0;
   left: 10px;
   font-weight: bold;
+  @media (min-width: ${props => props.theme.breakPoints.md}) {
+    font-size: 55px;
+  }
 `
 
 export const DeleteButton = styled.button`
