@@ -61,6 +61,8 @@ export const ButtonStyled = styled.button`
   font-weight: bold;
   font-size: 20px;
   border: none;
+  margin-left: 10px;
+  margin-right: 10px;
 
   &:focus {
     outline: none;

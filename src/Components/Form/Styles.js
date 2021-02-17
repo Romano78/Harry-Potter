@@ -1,21 +1,24 @@
 import styled from "@emotion/styled"
 
-export const FormStyled = styled.form`
-  display: flex;
-  justify-content: center;
-  width: 90%;
+export const FormContainer = styled.div`
   position: absolute;
   bottom: 10px;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+`
+
+export const FormStyled = styled.form`
+  display: flex;
 `
 
 export const Select = styled.select`
   height: 50px;
   width: 70px;
-  padding: 10px;
   background: black;
-  margin-right: 20px;
   color: white;
   text-align: center;
+  border: transparent;
   cursor: pointer;
 
   &:focus {

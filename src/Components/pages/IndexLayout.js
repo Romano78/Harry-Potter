@@ -1,9 +1,8 @@
 import React, { useState } from "react"
-import { BodyContainer, ScoreP, DeleteButton } from "./Styles"
+import { BodyContainer, ScoreP } from "./Styles"
 import Banner from "../Banner"
 import Card from "../Card"
 import Form from "../Form/Index"
-// import Button from "../Utilities/Button"
 import mc from "../../../static/Images/mc.png"
 import robin from "../../../static/Images/robin.png"
 import paul from "../../../static/Images/paul.png"
@@ -93,6 +92,7 @@ const IndexLayout = () => {
   }
 
   const onDeleteHandlerSouffle = () => {
+    console.log("clicked")
     if (souffleCount >= 1 && souffleCount !== 0) {
       setSouffleCount(souffleCount - souffleValue)
       setAnimationSouffle(prevState => prevState - souffleValue * 10)
@@ -115,7 +115,10 @@ const IndexLayout = () => {
           animationRomantard={animationRomantard}
           src={romain}
         >
-          <ScoreP>Score: {tardCount > 20 ? 20 : tardCount}</ScoreP>
+          <ScoreP>
+            Score:{" "}
+            {tardCount > 20 ? 20 : tardCount && tardCount < 0 ? 0 : tardCount}
+          </ScoreP>
           <Form
             count={tardCount}
             onChangeHandler={onChangeHandlerTard}
@@ -124,11 +127,18 @@ const IndexLayout = () => {
             type={{
               house: "romentard",
             }}
+            clicked={onDeleteHandlerTard}
           />
-          <DeleteButton onClick={onDeleteHandlerTard}>Substract</DeleteButton>
         </Card>
         <Card title="Hemsirdaigle" animationAigle={animationAigle} src={mc}>
-          <ScoreP>Score: {aigleCount > 20 ? 20 : aigleCount}</ScoreP>
+          <ScoreP>
+            Score:
+            {aigleCount > 20
+              ? 20
+              : aigleCount && aigleCount < 0
+              ? 0
+              : aigleCount}
+          </ScoreP>
           <Form
             count={aigleCount}
             onChangeHandler={onChangeHandlerAigle}
@@ -137,15 +147,22 @@ const IndexLayout = () => {
             type={{
               house: "hemsirdaigle",
             }}
+            clicked={onDeleteHandlerAigle}
           />
-          <DeleteButton onClick={onDeleteHandlerAigle}>Substract</DeleteButton>
         </Card>
         <Card
           title="Paulsouffle"
           animationSouffle={animationSouffle}
           src={paul}
         >
-          <ScoreP>Score: {souffleCount > 20 ? 20 : souffleCount}</ScoreP>
+          <ScoreP>
+            Score:
+            {souffleCount > 20
+              ? 20
+              : souffleCount && souffleCount < 0
+              ? 0
+              : souffleCount}
+          </ScoreP>
           <Form
             count={souffleCount}
             onChangeHandler={onChangeHandlerSouffle}
@@ -154,13 +171,18 @@ const IndexLayout = () => {
             type={{
               house: "paulsouffle",
             }}
+            clicked={() => onDeleteHandlerSouffle()}
           />
-          <DeleteButton onClick={onDeleteHandlerSouffle}>
-            Substract
-          </DeleteButton>
         </Card>
         <Card title="Gryffobin" animationGriff={animationGriff} src={robin}>
-          <ScoreP>Score: {griffCount > 20 ? 20 : griffCount}</ScoreP>
+          <ScoreP>
+            Score:
+            {griffCount > 20
+              ? 20
+              : griffCount && griffCount < 0
+              ? 0
+              : griffCount}
+          </ScoreP>
           <Form
             count={griffCount}
             onChangeHandler={onChangeHandlerGriff}
@@ -169,8 +191,8 @@ const IndexLayout = () => {
             type={{
               house: "gryffobin",
             }}
+            clicked={onDeleteHandlerGriff}
           />
-          <DeleteButton onClick={onDeleteHandlerGriff}>Substract</DeleteButton>
         </Card>
       </BodyContainer>
     </>

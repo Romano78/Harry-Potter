@@ -2,7 +2,6 @@ import React from "react"
 import { CardContainer, CardImageContainer, HeadContainer } from "./Styles"
 import Heads from "../Heads"
 const Card = props => {
-  console.log(props)
   return (
     <CardContainer>
       <h3>{props.title}</h3>
