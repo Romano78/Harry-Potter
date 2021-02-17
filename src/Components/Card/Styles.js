@@ -2,8 +2,44 @@ import styled from "@emotion/styled"
 import { css } from "@emotion/core"
 import { ImageContainer } from "../Heads/Styles"
 
-const show = props => {
-  console.log(props)
+// let value = 100
+
+// transform: ${props =>
+//   props.animationRomantard
+//     ? `translateY(calc(10px + ${props.animationRomantard}%))`
+//     : `translateY(0)`};
+
+const animation = props => {
+  if (props.animationRomantard) {
+    console.log("romatand")
+
+    return css`
+      transform: ${`translateY(-${props.animationRomantard}%)`};
+    `
+  }
+
+  if (props.animationAigle) {
+    return css`
+      transform: ${`translateY(-${props.animationAigle}%)`};
+    `
+  }
+
+  if (props.animationSouffle) {
+    return css`
+      transform: ${`translateY(-${props.animationSouffle}%)`};
+    `
+  }
+
+  if (props.animationSouffle) {
+    return css`
+      transform: ${`translateY(-${props.animationSouffle}%)`};
+    `
+  }
+  if (props.animationGriff) {
+    return css`
+      transform: ${`translateY(-${props.animationGriff}%)`};
+    `
+  }
 }
 
 const colors = props => {
@@ -58,9 +94,10 @@ export const CardContainer = styled.div`
   width: 100%;
   ${background}
   position: relative;
+  height: 900px;
 
   @media (min-width: ${props => props.theme.breakPoints.md}) {
-    min-height: 940px;
+    height: 890px;
   }
 
   h3 {
@@ -79,19 +116,32 @@ export const CardImageContainer = styled(ImageContainer)`
   align-items: center;
   display: flex;
   flex-direction: column;
-
-  ${show}
+  position: absolute;
+  bottom: 60px;
 
   img {
-    height: 200px;
-    width: 200px;
+    height: 300px;
+    width: 300px;
     border-radius: 50%;
 
     @media (min-width: ${props => props.theme.breakPoints.md}) {
-      height: 150px !important;
-      width: 150px !important;
+      height: 200px !important;
+      width: 200px !important;
     }
   }
 `
 
-export const HeadContainer = styled.div``
+export const HeadContainer = styled.div`
+  /* transform: translateY(calc(10px + 50%)); */
+  /* transform: ${props =>
+    props.animationRomantard
+      ? `translateY(calc(10px + ${props.animationRomantard}%))`
+      : `translateY(0)`};
+
+  transform: ${props =>
+    props.animationAigle
+      ? `translateY(calc(10px + ${props.animationAigle}%))`
+      : `translateY(0)`}; */
+
+  ${animation}
+`

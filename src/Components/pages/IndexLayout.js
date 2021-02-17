@@ -4,6 +4,10 @@ import Banner from "../Banner"
 import Card from "../Card"
 import Form from "../Form/Index"
 // import Button from "../Utilities/Button"
+import mc from "../../../static/Images/mc.png"
+import robin from "../../../static/Images/robin.png"
+import paul from "../../../static/Images/paul.png"
+import romain from "../../../static/Images/romain.png"
 
 const IndexLayout = () => {
   const [tardValue, setTardValue] = useState("1")
@@ -16,11 +20,18 @@ const IndexLayout = () => {
   const [griffCount, setGriffCount] = useState(0)
   const [souffleCount, setSouffleCount] = useState(0)
 
+  const [animationRomantard, setAnimationRomantard] = useState(0)
+  const [animationAigle, setAnimationAigle] = useState(0)
+  const [animationSouffle, setAnimationSouffle] = useState(0)
+  const [animationGriff, setAnimationGriff] = useState(0)
+
   const onSubmitHandlerTard = e => {
     e.preventDefault()
 
     if (tardCount < 20) {
       setTardCount(prevState => prevState + +tardValue)
+
+      setAnimationRomantard(prevState => prevState + tardValue * 10)
     }
   }
 
@@ -33,6 +44,7 @@ const IndexLayout = () => {
 
     if (aigleCount < 20) {
       setAigleCount(prevState => prevState + +aigleValue)
+      setAnimationAigle(prevState => prevState + aigleValue * 10)
     }
   }
 
@@ -45,6 +57,7 @@ const IndexLayout = () => {
 
     if (griffCount < 20) {
       setGriffCount(prevState => prevState + +griffValue)
+      setAnimationGriff(prevState => prevState + griffValue * 10)
     }
   }
 
@@ -57,6 +70,7 @@ const IndexLayout = () => {
 
     if (souffleCount < 20) {
       setSouffleCount(prevState => prevState + +souffleValue)
+      setAnimationSouffle(prevState => prevState + souffleValue * 10)
     }
   }
 
@@ -67,24 +81,28 @@ const IndexLayout = () => {
   const onDeleteHandlerTard = () => {
     if (tardCount >= 1 && tardCount !== 0) {
       setTardCount(tardCount - tardValue)
+      setAnimationRomantard(prevState => prevState - tardValue * 10)
     }
   }
 
   const onDeleteHandlerAigle = () => {
     if (aigleCount >= 1 && aigleCount !== 0) {
       setAigleCount(aigleCount - aigleValue)
+      setAnimationAigle(prevState => prevState - aigleValue * 10)
     }
   }
 
   const onDeleteHandlerSouffle = () => {
     if (souffleCount >= 1 && souffleCount !== 0) {
       setSouffleCount(souffleCount - souffleValue)
+      setAnimationSouffle(prevState => prevState - souffleValue * 10)
     }
   }
 
   const onDeleteHandlerGriff = () => {
     if (griffCount >= 1 && griffCount !== 0) {
       setGriffCount(griffCount - griffValue)
+      setAnimationGriff(prevState => prevState - griffValue * 10)
     }
   }
 
@@ -92,8 +110,12 @@ const IndexLayout = () => {
     <>
       <Banner />
       <BodyContainer>
-        <Card title="Romentard">
-          <ScoreP>Score: {tardCount}</ScoreP>
+        <Card
+          title="Romentard"
+          animationRomantard={animationRomantard}
+          src={romain}
+        >
+          <ScoreP>Score: {tardCount > 20 ? 20 : tardCount}</ScoreP>
           <Form
             count={tardCount}
             onChangeHandler={onChangeHandlerTard}
@@ -105,8 +127,8 @@ const IndexLayout = () => {
           />
           <DeleteButton onClick={onDeleteHandlerTard}>Substract</DeleteButton>
         </Card>
-        <Card title="Hemsirdaigle">
-          <ScoreP>Score: {aigleCount}</ScoreP>
+        <Card title="Hemsirdaigle" animationAigle={animationAigle} src={mc}>
+          <ScoreP>Score: {aigleCount > 20 ? 20 : aigleCount}</ScoreP>
           <Form
             count={aigleCount}
             onChangeHandler={onChangeHandlerAigle}
@@ -118,8 +140,12 @@ const IndexLayout = () => {
           />
           <DeleteButton onClick={onDeleteHandlerAigle}>Substract</DeleteButton>
         </Card>
-        <Card title="Paulsouffle">
-          <ScoreP>Score: {souffleCount}</ScoreP>
+        <Card
+          title="Paulsouffle"
+          animationSouffle={animationSouffle}
+          src={paul}
+        >
+          <ScoreP>Score: {souffleCount > 20 ? 20 : souffleCount}</ScoreP>
           <Form
             count={souffleCount}
             onChangeHandler={onChangeHandlerSouffle}
@@ -133,8 +159,8 @@ const IndexLayout = () => {
             Substract
           </DeleteButton>
         </Card>
-        <Card title="Gryffobin">
-          <ScoreP>Score: {griffCount}</ScoreP>
+        <Card title="Gryffobin" animationGriff={animationGriff} src={robin}>
+          <ScoreP>Score: {griffCount > 20 ? 20 : griffCount}</ScoreP>
           <Form
             count={griffCount}
             onChangeHandler={onChangeHandlerGriff}
