@@ -106,7 +106,11 @@ export const CardContainer = styled.div`
     ${colors}
     font-size: 30px;
     text-transform: uppercase;
-    padding-top: 50px;
+    padding-top: 70px;
+
+    @media (min-width: ${props => props.theme.breakPoints.md}) {
+      padding-top: 50px;
+    }
   }
 `
 
