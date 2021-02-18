@@ -11,7 +11,11 @@ export const FooterContainer = styled.div`
   p {
     text-align: center;
     color: white;
-    font-size: 30px;
+    font-size: 15px;
     font-family: Arial;
+
+    @media (min-width: ${props => props.theme.breakPoints.md}) {
+      font-size: 30px;
+    }
   }
 `
